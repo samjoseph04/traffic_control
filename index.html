@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traffic Control</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="game">
+  <header class="hud">
+    <div class="stat"><span>Score</span><b id="score">0</b></div>
+    <div class="stat"><span>High score</span><b id="high">0</b></div>
+    <div class="stat"><span>Time</span><b id="time">0:00</b></div>
+    <div class="stat"><span>Level</span><b id="level">1</b></div>
+  </header>
+
+  <div class="stage">
+    <canvas id="game" width="640" height="640" aria-label="Traffic intersection"></canvas>
+
+    <section class="overlay" id="startScreen">
+      <h1>🚦 Traffic Control</h1>
+      <ul class="rules">
+        <li>You control the traffic lights. Only one road can be green at a time.</li>
+        <li>Cars stop on red and go on green. Each car that crosses scores points.</li>
+        <li>Wait until the middle is clear before switching, or cars will crash.</li>
+        <li>Don't let a line of cars back up to the edge of the screen.</li>
+      </ul>
+      <p class="keys">
+        <kbd>W</kbd> <kbd>A</kbd> <kbd>↑</kbd> <kbd>←</kbd> North / South &nbsp;·&nbsp;
+        <kbd>S</kbd> <kbd>D</kbd> <kbd>↓</kbd> <kbd>→</kbd> East / West &nbsp;·&nbsp;
+        <kbd>Space</kbd> Pause
+      </p>
+      <button class="btn" id="startBtn">Start game</button>
+    </section>
+
+    <section class="overlay" id="pauseScreen" hidden>
+      <h1>Paused</h1>
+      <button class="btn" id="resumeBtn">Resume</button>
+    </section>
+
+    <section class="overlay" id="overScreen" hidden>
+      <h1 id="overTitle">Game over</h1>
+      <p id="overMsg"></p>
+      <p class="final">Score <b id="finalScore">0</b> &nbsp; Best <b id="finalBest">0</b></p>
+      <p class="newbest" id="newBest" hidden>New high score!</p>
+      <button class="btn" id="restartBtn">Play again</button>
+    </section>
+  </div>
+
+  <div class="controls">
+    <button class="ctl ns" id="btnNS">↕ North / South</button>
+    <button class="ctl pause" id="btnPause">⏸ Pause</button>
+    <button class="ctl ew" id="btnEW">↔ East / West</button>
+  </div>
+  <p class="hint">Tap a button or use the keyboard to give a road the green light.</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
